@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@pipedrive/app-extensions-sdk@0/dist/index.umd.js"></script>
 
 </head>
 
@@ -16,6 +17,12 @@
     <input type="submit" value="Save">
   </form>
   <script src="./script.js"></script>
+
+  <script>
+    (async function () {
+      const sdk = await new AppExtensionsSDK().initialize();
+    })();
+  </script>
 </body>
 
 </html>
