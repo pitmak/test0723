@@ -50,6 +50,6 @@ formEl.addEventListener('submit', async (e) => {
   result = await response.json();
   console.log(result);
 
-  await sdk.execute('close_modal');
+  //await sdk.execute('close_modal');
   //await sdk.execute(Command.REDIRECT_TO, { view: View.DEALS });
 });
