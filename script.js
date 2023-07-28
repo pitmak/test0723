@@ -36,11 +36,11 @@ formEl.addEventListener('submit', async (e) => {
   });
 
   let result = await response.json();
-  console.log(result);
+  console.log(result.data);
 
   const dealId = result.data.id;
 
-  response = await fetch(`${BASE_URL}/dealFielss?api_token=${API_TOKEN}`, {
+  response = await fetch(`${BASE_URL}/dealFields?api_token=${API_TOKEN}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
