@@ -7,22 +7,27 @@
   <title>Document</title>
   <link rel="stylesheet" href="./style.css">
   <script src="https://cdn.jsdelivr.net/npm/@pipedrive/app-extensions-sdk@0/dist/index.umd.js"></script>
-
 </head>
 
 <body>
   <form>
+    <div>
+      <h2>Client details</h2>
+      <input type="text" name="firstname" placeholder="First name">
+      <input type="text" name="lastname" placeholder="Last name">
+      <input type="text" name="phone" placeholder="Phone">
+      <input type="email" name="email" placeholder="Email (optional)">
+    </div>
+    <div>
+      <h2>Job details</h2>
+      <input type="text" name="jobtype" placeholder="Job type">
+    </div>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name">
     <input type="submit" value="Save">
   </form>
-  <script type="module" src="./script.js"></script>
 
-  <!-- <script>
-    (async function () {
-      const sdk = await new AppExtensionsSDK().initialize();
-    })();
-  </script> -->
+  <script type="module" src="./script.js"></script>
 </body>
 
 </html>
