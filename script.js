@@ -24,6 +24,8 @@ formEl.addEventListener('submit', async (e) => {
     lost_reason: null,
     visible_to: 1,
     add_time: '2021-02-11',
+    '1771295fa663ef8823f671197deebab74a670d39': '1485 Langham Terrace, Heathrowm FL 32746, USA',
+    'e9b4152769115f4d8969ef3c392d3164d9132f38': 'simple job',
   };
 
   const url = `${BASE_URL}/deals?api_token=${API_TOKEN}`;
