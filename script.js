@@ -10,6 +10,31 @@ formEl.addEventListener('submit', async (e) => {
   e.preventDefault();
   console.log('on submit form');
 
+  const customFieldKey = {
+    'Address': null,
+    'Job type': null,
+    'Job source': null,
+    'Job date': null,
+    'Job start time': null,
+    'Job end time': null,
+    'Technician': null,
+    'Area': null,
+    'Job comment': null,
+  };
+
+  let response = await fetch(`${BASE_URL}/dealFields?api_token=${API_TOKEN}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  result = await response.json();
+  result.data.forEach(({ key, name }) => {
+    if (Object.hasOwn(customFieldKey, name)) {
+      customFieldKey[name] = key;
+    }
+  });
+
   const data = {
     title: 'Deal of the century',
     value: 10000,
@@ -24,12 +49,12 @@ formEl.addEventListener('submit', async (e) => {
     lost_reason: null,
     visible_to: 1,
     add_time: '2021-02-11',
-    '1771295fa663ef8823f671197deebab74a670d39': '1485 Langham Terrace, Heathrowm FL 32746, USA',
-    'e9b4152769115f4d8969ef3c392d3164d9132f38': 'simple job',
+    [customFieldKey['Address']]: '1485 Langham Terrace, Heathrowm FL 32746, USA',
+    [customFieldKey['Job type']]: 'simple job',
   };
 
   const url = `${BASE_URL}/deals?api_token=${API_TOKEN}`;
-  let response = await fetch(url, {
+  response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -41,16 +66,6 @@ formEl.addEventListener('submit', async (e) => {
   console.log(result.data);
 
   const dealId = result.data.id;
-
-  response = await fetch(`${BASE_URL}/dealFields?api_token=${API_TOKEN}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  });
-
-  result = await response.json();
-  console.log(result);
 
   //await sdk.execute('close_modal');
   //await sdk.execute(Command.REDIRECT_TO, { view: View.DEALS });
