@@ -36,7 +36,20 @@ formEl.addEventListener('submit', async (e) => {
   });
 
   let result = await response.json();
-  alert(result.message);
+  console.log(result.message);
+
+  const dealId = result.message.data.id;
+
+  response = await fetch(`${BASE_URL}/dealFielss?api_token=${API_TOKEN}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+
+  result = await response.json();
+  console.log(result);
+
   await sdk.execute('close_modal');
   //await sdk.execute(Command.REDIRECT_TO, { view: View.DEALS });
 });
