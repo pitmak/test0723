@@ -28,7 +28,7 @@ formEl.addEventListener('submit', async (e) => {
       'Content-Type': 'application/json'
     },
   });
-  result = await response.json();
+  let result = await response.json();
   result.data.forEach(({ key, name }) => {
     if (Object.hasOwn(customFieldKey, name)) {
       customFieldKey[name] = key;
@@ -62,7 +62,7 @@ formEl.addEventListener('submit', async (e) => {
     body: JSON.stringify(data),
   });
 
-  let result = await response.json();
+  result = await response.json();
   console.log(result.data);
 
   const dealId = result.data.id;
