@@ -1,5 +1,5 @@
 const sdk = await new AppExtensionsSDK().initialize();
-await sdk.execute('resize', { height: 500, width: 900 });
+await sdk.execute('resize', { height: 540, width: 900 });
 
 const BASE_URL = 'https://api.pipedrive.com/v1'
 const API_TOKEN = 'cacb34a6879243a3c4626e1fc44bc8209704685d';
@@ -77,7 +77,7 @@ formEl.addEventListener('submit', async (e) => {
     [customFieldKey['Job date']]: e.target.elements.startdate.value,
     [customFieldKey['Job start time']]: e.target.elements.starttime.value,
     [customFieldKey['Job end time']]: e.target.elements.endtime.value,
-    [customFieldKey['Technician']]: e.target.elements.techincian.value,
+    [customFieldKey['Technician']]: e.target.elements.technician.value,
     [customFieldKey['Area']]: e.target.elements.area.value,
     [customFieldKey['Job comment']]: e.target.elements.jobdescription.value,
   };
