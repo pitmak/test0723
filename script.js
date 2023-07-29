@@ -78,6 +78,6 @@ formEl.addEventListener('submit', async (e) => {
 
   const dealId = result.data.id;
 
-  await sdk.execute('close_modal');
   await sdk.execute('redirect_to', { view: 'deals', id: dealId });
+  await sdk.execute('close_modal');
 });
