@@ -9,7 +9,7 @@ h3 {
 }
 
 .group-box {
-  width: 400px;
+  width: 350px;
   margin: 5px;
   padding: 15px;
   border: solid 1px silver;
@@ -28,11 +28,11 @@ h3 {
 }
 
 .w2 {
-  width: 44%;
+  width: 43%;
 }
 
 .footer {
-  width: 800px;
+  width: 100%;
   padding: 15px;
   display: flex;
   justify-content: center;
