@@ -35,6 +35,23 @@ formEl.addEventListener('submit', async (e) => {
     }
   });
 
+  const personData = {
+    name: `${e.target.elements.firstname.value} ${e.target.elements.lastname.value}`,
+    email: [{ value: e.target.elements.email.value, primary: "true", label: "main" }],
+    phone: [{ value: e.target.elements.phone.value, primary: "true", label: "mobile" }],
+  };
+
+  response = await fetch(`${BASE_URL}/persons?api_token=${API_TOKEN}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+  });
+
+  result = await response.json();
+  console.log(result.data);
+
   const data = {
     title: 'Deal of the century',
     value: 10000,

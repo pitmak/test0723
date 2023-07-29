@@ -11,20 +11,53 @@
 
 <body>
   <form>
-    <div>
-      <h2>Client details</h2>
-      <input type="text" name="firstname" placeholder="First name">
-      <input type="text" name="lastname" placeholder="Last name">
-      <input type="text" name="phone" placeholder="Phone">
-      <input type="email" name="email" placeholder="Email (optional)">
+    <div class="group-box">
+      <h3 class="form-elem">Client details</h3>
+      <input class="form-elem w2" type="text" name="firstname" placeholder="First name" required>
+      <input class="form-elem w2" type="text" name="lastname" placeholder="Last name" required>
+      <input class="form-elem" type="text" name="phone" placeholder="Phone" required>
+      <input class="form-elem" type="email" name="email" placeholder="Email (optional)">
     </div>
-    <div>
-      <h2>Job details</h2>
-      <input type="text" name="jobtype" placeholder="Job type">
+    <div class="group-box">
+      <h3 class="form-elem">Job details</h3>
+      <input class="form-elem w2" type="text" name="jobtype" placeholder="Job type" list="jobtypes" required>
+      <datalist id="jobtypes">
+        <option value="Job type 1">
+        <option value="Job type 2">
+        <option value="Job type 3">
+      </datalist>
+      <input class="form-elem w2" type="text" name="jobsource" placeholder="Job source" list="jobsources" required>
+      <datalist id="jobsources">
+        <option value="Job source 1">
+        <option value="Job source 2">
+        <option value="Job source 3">
+      </datalist>
+      <textarea class="form-elem" name="jobdescription" placeholder="Job description (optional)" rows="4"></textarea>
     </div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name">
-    <input type="submit" value="Save">
+    <div class="group-box">
+      <h3 class="form-elem">Service location</h3>
+      <input class="form-elem" type="text" name="address" placeholder="Address" required>
+      <input class="form-elem" type="text" name="city" placeholder="City">
+      <input class="form-elem" type="text" name="state" placeholder="State">
+      <input class="form-elem w2" type="text" name="zipcode" placeholder="Zip code">
+      <input class="form-elem w2" type="text" name="area" placeholder="Area">
+    </div>
+    <div class="group-box">
+      <h3 class="form-elem">Scheduled</h3>
+      <input class="form-elem" type="date" name="startdate" placeholder="Start date" required>
+      <input class="form-elem w2" type="time" name="starttime" placeholder="Start time" required>
+      <input class="form-elem w2" type="time" name="endtime" placeholder="End time" required>
+      <input class="form-elem" type="text" name="technician" placeholder="Select technician" list="technicians"
+        required>
+      <datalist id="technicians">
+        <option value="Tech 1">
+        <option value="Tech 2">
+        <option value="Tech 3">
+      </datalist>
+    </div>
+    <div class="footer">
+      <input type="submit" value="Save">
+    </div>
   </form>
 
   <script type="module" src="./script.js"></script>

@@ -1,3 +1,39 @@
 form {
-  box-shadow: 5px 5px 5px silver;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+h3 {
+  width: 350px;
+}
+
+.group-box {
+  width: 400px;
+  margin: 5px;
+  padding: 15px;
+  border: solid 1px silver;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px silver;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.form-elem {
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.w2 {
+  width: 44%;
+}
+
+.footer {
+  width: 800px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
 }
