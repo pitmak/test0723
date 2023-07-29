@@ -46,7 +46,7 @@ formEl.addEventListener('submit', async (e) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(personData),
   });
 
   result = await response.json();
