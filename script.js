@@ -1,5 +1,5 @@
 const sdk = await new AppExtensionsSDK().initialize();
-await sdk.execute('resize', { height: 540, width: 900 });
+await sdk.execute('resize', { height: 520, width: 900 });
 
 const BASE_URL = 'https://api.pipedrive.com/v1'
 const API_TOKEN = 'cacb34a6879243a3c4626e1fc44bc8209704685d';
@@ -82,16 +82,6 @@ formEl.addEventListener('submit', async (e) => {
     [customFieldKey['Job comment']]: e.target.elements.jobdescription.value,
   };
 
-  const url = `${BASE_URL}/deals?api_token=${API_TOKEN}`;
-  response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
-  });
-
-  result = await response.json();
   result = await fetchQuery('deals', 'POST', dealData);
   console.log(result.data);
 
