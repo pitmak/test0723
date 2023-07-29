@@ -41,6 +41,7 @@ formEl.addEventListener('submit', async (e) => {
   };
 
   let result = await fetchQuery('dealFields', 'GET');
+
   result.data.forEach(({ key, name }) => {
     if (Object.hasOwn(customFieldKey, name)) {
       customFieldKey[name] = key;
@@ -54,23 +55,14 @@ formEl.addEventListener('submit', async (e) => {
   };
 
   result = await fetchQuery('persons', 'POST', personData);
-  console.log(result.data);
+
   const personId = result.data.id;
 
   const dealData = {
     title: 'New job',
-    // value: 10000,
-    // currency: 'USD',
-    // user_id: null,
     person_id: personId,
-    // org_id: 1,
-    // stage_id: 1,
     status: 'open',
-    // expected_close_date: '2022-02-11',
-    // probability: 60,
-    // lost_reason: null,
     visible_to: 1,
-    // add_time: '2021-02-11',
     [customFieldKey['Address']]: e.target.elements.address.value,
     [customFieldKey['Job type']]: e.target.elements.jobtype.value,
     [customFieldKey['Job source']]: e.target.elements.jobsource.value,
@@ -83,10 +75,9 @@ formEl.addEventListener('submit', async (e) => {
   };
 
   result = await fetchQuery('deals', 'POST', dealData);
-  console.log(result.data);
 
   const dealId = result.data.id;
 
-  //await sdk.execute('close_modal');
+  await sdk.execute('close_modal');
   await sdk.execute('redirect_to', { view: 'deals', id: dealId });
 });
